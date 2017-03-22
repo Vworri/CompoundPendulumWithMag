@@ -1,0 +1,5 @@
+setup.py
+CompoudPendUI.egg-info/PKG-INFO
+CompoudPendUI.egg-info/SOURCES.txt
+CompoudPendUI.egg-info/dependency_links.txt
+CompoudPendUI.egg-info/top_level.txt

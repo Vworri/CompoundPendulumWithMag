@@ -10,12 +10,15 @@ class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         
-        self.setWindowTitle("My Awesome App")
+        self.setWindowTitle("Compound Pendulum")
         self.tabs = QTabWidget()
         pendUi = PendulumInterface()
         about = About()
+        diagram = SystemDiagram()
         self.tabs.addTab(about, "About")
         self.tabs.addTab(pendUi, "Pendulum")
+        self.tabs.addTab(diagram, "System Diagram")
+        
         # Set the central widget of the Window. Widget will expand
         # to take up all the space in the window by default.
         self.setCentralWidget(self.tabs)
@@ -55,7 +58,37 @@ class About(QWidget):
         layout.addWidget(my_text_edit)
         self.setLayout(layout)
 
+class SystemDiagram(QWidget):
 
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("System Diagram")
+        my_text_edit = QTextEdit()
+        my_text_edit.setReadOnly(True)
+        my_text_edit.textCursor().insertHtml("""
+        <h1>Compound Pendulum</h1>
+        <p>
+        The system is programmed as drawn adjacent. There is a pendulum with a metal disk on the end that is free to swing back and forth.
+        </p>
+        <p>
+        There is a magnet at the bottom of the swing who's field's strength is programmable. In addition, a driving or dampening force can be added.
+        </p>
+        <p>
+        Parameters are initialized for chaos!!!!!
+        </p>
+        """)
+        label = QLabel(self)
+        pixmap = QPixmap('compoundpendulum.jpg')
+        label.setPixmap(pixmap)
+        scroll = QScrollArea()
+        scroll.setWidget(label)
+        scroll.setWidgetResizable(True)
+        layout = QHBoxLayout(self)
+        
+        layout.addWidget(scroll)
+        layout.addWidget(my_text_edit)
+        self.setLayout(layout)
+        
 class PendulumInterface(QDialog, Ui_Dialog):
     def __init__(self, parent=None):
         super(PendulumInterface, self).__init__(parent)

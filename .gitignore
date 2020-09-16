@@ -1,0 +1,7 @@
+__pycache__/
+.idea/
+,vscode/
+CompoudPendUI.egg-info/
+env/
+*__pycache__
+dist/

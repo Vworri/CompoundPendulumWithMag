@@ -6,13 +6,13 @@ class Pendulum(object):
     def __init__(self):
         self.p = 0.01
         self.Dr = 0  # sinusoidal driving coefficient
-        self.Da = 0  #damping coefficient
-        self.mr = 0.5  #mass of pendulum arm
-        self.md = 0.05  #mass of disk
-        self.l = 1  #length from disk to pivot
+        self.Da = 0  # damping coefficient
+        self.mr = 0.5  # mass of pendulum arm
+        self.md = 0.05  # mass of disk
+        self.l = 1  # length from disk to pivot
         self.R = 0.025  # radius of the disk
-        self.B = 0.005
-        self.Res = 1
+        self.B = 0.005 # magnetic field
+        self.Res = 1  #resistivity of disk metal
         self.g = 9.8  #gravity
         self.C = 2 * self.R * self.R * math.pi
         self.t = arange(0, 100, self.p)  # time step

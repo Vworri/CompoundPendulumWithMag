@@ -1,0 +1,24 @@
+# Compound Pendulum
+
+
+A program that allows the user to define the parameters of a pendulum and run a simulation of it's behaviour
+
+        self.Dr.setValue(self.pendulum.Dr)
+        self.Da.setValue(self.pendulum.Da)
+        self.MagField.setValue(self.pendulum.B)
+        self.t.setValue(self.pendulum.p)
+        self.omegaD.setValue(self.pendulum.omegaD)
+
+*Mass of disk
+*Resistivity of disk
+*Radius of disk
+*Mass of pendulum arm
+*Length of pendulum arm
+*Driving frequency 
+*Dampening frequency
+*Time (steps 0.01)
+*Magnet strength
+
+
+
+![Image of System](compoundpendulum.jpg)

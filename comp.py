@@ -4,7 +4,7 @@ from pylab import *
 
 class Pendulum(object):
     def __init__(self):
-        self.p = 0.01
+        self.step = 0.01
         self.Dr = 0  # sinusoidal driving coefficient
         self.Da = 0  # damping coefficient
         self.mr = 0.5  # mass of pendulum arm
@@ -14,15 +14,17 @@ class Pendulum(object):
         self.B = 0.005 # magnetic field
         self.Res = 1  #resistivity of disk metal
         self.g = 9.8  #gravity
+        self.duration = 100
         self.C = 2 * self.R * self.R * math.pi
-        self.t = arange(0, 100, self.p)  # time step
+        self.time_vector = arange(0, self.duration, self.step)  # time step
         self.omegaD = ((1/2*pi)*((1/2)*self.mr + self.md)*self.g*self.l/(((1/3)*self.mr + self.md)*self.l**2))  #driving frequency reminder: two different frequencies
         self.A = math.pi * self.R * self.R  # area of disc
         self.sigma = 0.5  #gaussian coefficient = gaussian variance
         self.oms = (self.Res * 10 ** -8) * (self.C / self.A)  #resistance of disc metal (copper)
         self.mu = 2.6 * self.sigma  # gaussian shift = expected value
  ########################################################################################################################
-
+    def update_time_vector(self):
+        self.time_vector = arange(0, self.duration, self.step) 
 ########################################################################################################################
 
 #System function
@@ -88,12 +90,12 @@ class Pendulum(object):
 
     def calculate(self):
         f_int = [3, 0.0]
-        kinematics = integrate.odeint(self.system_function, f_int, self.t)
+        kinematics = integrate.odeint(self.system_function, f_int, self.time_vector)
         position = kinematics[:, 0]
         AngularVelocity = kinematics[:, 1]
         figure(1)
         suptitle('Time vs Angular Velocity')
-        plot(self.t,AngularVelocity)
+        plot(self.time_vector,AngularVelocity)
         figure(2)
         suptitle('Position vs Momentum')
         plot(position, self.Momentum(position ,AngularVelocity))
@@ -102,7 +104,7 @@ class Pendulum(object):
         figure(3)
         plt.subplot(211, projection='polar')
         plt.title("A line plot of the pendulum moving on the polar axis,\n theta=Angular Velocity versus r=Time")
-        plot(AngularVelocity, self.t)
+        plot(AngularVelocity, self.time_vector)
         plt.subplot(212, projection='polar',label="Angular Velocity vs Position")
         plt.title("A line plot of the pendulum moving on the polar axis,\n Angular Velocity versus Position\n\n\n")
         plot(AngularVelocity, position)

@@ -100,10 +100,12 @@ class PendulumInterface(QDialog, Ui_Dialog):
         self.Da.setValue(self.pendulum.Da)
         self.mr.setValue(self.pendulum.mr)
         self.l.setValue(self.pendulum.l)
+        self.duration.setValue(self.pendulum.duration)
+        self.pendulum
         self.Res.setValue(self.pendulum.Res)
         self.r.setValue(self.pendulum.R)
         self.MagField.setValue(self.pendulum.B)
-        self.t.setValue(self.pendulum.p)
+        self.step.setValue(self.pendulum.step)
         self.omegaD.setValue(self.pendulum.omegaD)
 
     def main(self):
@@ -118,10 +120,11 @@ class PendulumInterface(QDialog, Ui_Dialog):
         self.pendulum.Res = self.Res.value()
         self.pendulum.R = self.r.value()
         self.pendulum.B = self.MagField.value()
-        self.pendulum.p = self.t.value()
+        self.pendulum.step = self.step.value()
+        self.pendulum.duration = self.duration.value()
+        self.pendulum.update_time_vector()
         self.pendulum.omegaD = self.omegaD.value()
         self.pendulum.calculate()
-        QDialog.accept(self)
 
     def reject(self,):
         global done

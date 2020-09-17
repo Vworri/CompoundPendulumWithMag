@@ -1,6 +1,8 @@
 from setuptools import setup, find_packages
+import py2exe
+
 setup(
-    name="CompoudPendUI",
+    name="CompoundPendUI",
     version="0.2",
     packages=find_packages(),
 )

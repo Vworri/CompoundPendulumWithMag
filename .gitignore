@@ -5,3 +5,7 @@ CompoudPendUI.egg-info/
 env/
 *__pycache__
 dist/
+build/
+*.spec
+env/
+*.zip

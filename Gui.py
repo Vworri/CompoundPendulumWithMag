@@ -4,7 +4,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
 from comp import Pendulum
-
+from style import STYLESHEET
 class MainWindow(QMainWindow):
     
     def __init__(self, *args, **kwargs):
@@ -18,7 +18,7 @@ class MainWindow(QMainWindow):
         self.tabs.addTab(about, "About")
         self.tabs.addTab(pendUi, "Pendulum")
         self.tabs.addTab(diagram, "System Diagram")
-        
+        self.setStyleSheet(STYLESHEET)
         # Set the central widget of the Window. Widget will expand
         # to take up all the space in the window by default.
         self.setCentralWidget(self.tabs)
@@ -47,7 +47,7 @@ class About(QWidget):
               </div>
           <h3 class="resume-title">Education</h3>
           <div class="resume-item">
-            <h4>Bachelors of Science &amp; Physics</h4>
+            <h4>Bachelors of Science: ; Physics</h4>
             <h5>2010 - 2014</h5>
             <p><em>Eckerd College, St. Petersburg, FL</em></p>
             <p>

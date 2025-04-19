@@ -18,3 +18,11 @@ A program that allows the user to define the parameters of a pendulum and run a 
 
 
 ![Image of System](compoundpendulum.jpg)
+
+
+```bash
+#!/bin/bash
+ pip install -r requirements.txt
+ python app.py
+
+```

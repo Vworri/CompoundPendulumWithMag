@@ -1,5 +1,10 @@
 import scipy.integrate as integrate
-from pylab import *
+from pylab_sdk import *
+from numpy import arange, sin
+from math import pi, e
+import math
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure, plot, show, suptitle
 
 
 class Pendulum(object):

@@ -5,6 +5,7 @@ from PyQt5.QtGui import *
 import sys
 from comp import Pendulum
 from style import STYLESHEET
+import matplotlib
 class MainWindow(QMainWindow):
     
     def __init__(self, *args, **kwargs):
